@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'amiibo_service.dart';
 
 class AmiiboLogic extends ChangeNotifier {
-  AmiiboModel _productList = AmiiboModel(amiibo: []);
-  AmiiboModel get productList => _productList;
+  AmiiboModel _item = AmiiboModel(amiibo: []);
+  AmiiboModel get item => _item;
 
   bool _loading = false;
   bool get loading => _loading;
@@ -18,7 +18,7 @@ class AmiiboLogic extends ChangeNotifier {
 
   Future read() async {
     setLoading();
-      _productList = await AmiiboService.getAPI();
+      _item = await AmiiboService.getAPI();
       _loading = false;
     notifyListeners();
   }
