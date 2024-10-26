@@ -18,13 +18,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   LanguageConstant _lang = Khmer();
   int _themeIndex = 0;
-  Color drawerColor = Colors.black;
 
   @override
   Widget build(BuildContext context) {
     _themeIndex = context.watch<ThemeLogic>().themeIndex;
     _lang = context.watch<LanguageLogic>().lang;
-    drawerColor = _themeIndex == 0 ? Colors.black : Colors.white;
 
     return _buildBody();
   }
@@ -36,8 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: CircularProgressIndicator(),
       );
     }
-
     AmiiboModel item = context.watch<AmiiboLogic>().item;
+    print(item.amiibo);
 
     return _buildGridView(item);
   }
@@ -74,15 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Image.network(
-              item.image,
-              width: 150,
-              height: 150,
-            ),
+            Image.network(item.image, 
+            width: 150,
+            height: 150,),
             Text(
               item.character,
               style: TextStyle(
-                color: drawerColor,
+                color: _themeIndex == 0 ? Colors.black : Colors.white,
                 fontSize: 18),
             ),
           ],

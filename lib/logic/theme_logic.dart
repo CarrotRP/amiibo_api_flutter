@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ThemeLogic extends ChangeNotifier {
-  int themeIndex = 0;
-
-  void toggleTheme() {
-    themeIndex == 0 ? themeIndex = 1 : themeIndex = 0;
-    notifyListeners();
-  }
+  int _themeIndex = 0;
+  int get themeIndex => _themeIndex;
   
   void changeToLight() {
-    themeIndex = 0;
+    _themeIndex = 0;
     notifyListeners();
   }
 
   void changeToDark() {
-    themeIndex = 1;
+    _themeIndex = 1;
     notifyListeners();
   }
 

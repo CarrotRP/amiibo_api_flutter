@@ -174,9 +174,17 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
               ],
-            ), ListTile(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => AboutScreen(text: _lang.aboutUs, themeIndex: _themeIndex))),
-              leading: Icon(Icons.info, color: drawerColor,),
+            ),
+            ListTile(
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AboutScreen(
+                          text: _lang.aboutUs, themeIndex: _themeIndex))),
+              leading: Icon(
+                Icons.info,
+                color: drawerColor,
+              ),
               title: Text(
                 _lang.aboutUs,
                 style: TextStyle(color: drawerColor),

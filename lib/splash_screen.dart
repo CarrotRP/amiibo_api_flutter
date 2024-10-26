@@ -23,7 +23,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // int themeIndex = context.watch<ThemeLogic>().themeIndex;
+    int _themeIndex = context.watch<ThemeLogic>().themeIndex;
 
     return FutureBuilder(
         future: context.read<AmiiboLogic>().read(),
