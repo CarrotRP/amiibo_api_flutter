@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'component/amiibo_logic.dart';
+import 'logic/amiibo_logic.dart';
+import 'logic/language_logic.dart';
+import 'logic/theme_logic.dart';
 import 'main_screen.dart';
-import 'state_module/language_logic.dart';
-import 'state_module/theme_logic.dart';
 
 //loading screen
 Widget stateAppWithProvider() {

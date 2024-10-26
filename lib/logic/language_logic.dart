@@ -1,4 +1,4 @@
-import 'package:amiibo_api/state_module/language_constant.dart';
+import 'package:amiibo_api/component/language_constant.dart';
 import 'package:flutter/material.dart';
 
 class LanguageLogic extends ChangeNotifier {

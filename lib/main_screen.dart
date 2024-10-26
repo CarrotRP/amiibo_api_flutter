@@ -1,10 +1,9 @@
-import 'package:amiibo_api/splash_screen.dart';
-import 'package:amiibo_api/state_module/language_constant.dart';
-import 'package:amiibo_api/state_module/language_logic.dart';
-import 'package:amiibo_api/state_module/theme_logic.dart';
+import 'package:amiibo_api/logic/language_logic.dart';
+import 'package:amiibo_api/logic/theme_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'component/language_constant.dart';
 import 'screen/about_screen.dart';
 import 'screen/home_screen.dart';
 import 'screen/search_screen.dart';

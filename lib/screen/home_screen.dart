@@ -1,11 +1,12 @@
-import 'package:amiibo_api/component/amiibo_logic.dart';
+import 'package:amiibo_api/logic/amiibo_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../component/amiibo_model.dart';
-import '../state_module/language_constant.dart';
-import '../state_module/language_logic.dart';
-import '../state_module/theme_logic.dart';
+import '../component/language_constant.dart';
+import '../logic/language_logic.dart';
+import '../logic/theme_logic.dart';
+import 'detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -38,10 +39,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
     AmiiboModel item = context.watch<AmiiboLogic>().item;
 
-    return _buildListView(item);
+    return _buildGridView(item);
   }
 
-  Widget _buildListView(AmiiboModel item) {
+  Widget _buildGridView(AmiiboModel item) {
     return RefreshIndicator(
         onRefresh: () async {
           context.read<AmiiboLogic>().read();
@@ -65,23 +66,27 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildItem(Amiibo item) {
-    return Card(
-      color: _themeIndex == 0 ? Colors.white : Colors.black,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Image.network(
-            item.image,
-            width: 150,
-            height: 150,
-          ),
-          Text(
-            item.character,
-            style: TextStyle(
-              color: drawerColor,
-              fontSize: 18),
-          ),
-        ],
+    return InkWell(
+      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => 
+      DetailScreen(themeIndex: _themeIndex, itemName: item.name, itemImg: item.image, itemGseries: item.gameSeries, itemType: item.type,))),
+      child: Card(
+        color: _themeIndex == 0 ? Colors.white : Colors.black,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Image.network(
+              item.image,
+              width: 150,
+              height: 150,
+            ),
+            Text(
+              item.character,
+              style: TextStyle(
+                color: drawerColor,
+                fontSize: 18),
+            ),
+          ],
+        ),
       ),
     );
   }

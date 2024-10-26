@@ -1,4 +1,4 @@
-import 'package:amiibo_api/state_module/theme_logic.dart';
+import 'package:amiibo_api/logic/theme_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

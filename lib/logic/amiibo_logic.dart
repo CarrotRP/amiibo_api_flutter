@@ -1,6 +1,6 @@
 import 'package:amiibo_api/component/amiibo_model.dart';
 import 'package:flutter/material.dart';
-import 'amiibo_service.dart';
+import '../component/amiibo_service.dart';
 
 class AmiiboLogic extends ChangeNotifier {
   AmiiboModel _item = AmiiboModel(amiibo: []);
