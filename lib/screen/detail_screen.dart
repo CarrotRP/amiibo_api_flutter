@@ -50,6 +50,24 @@ class DetailScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
+                            "Amiibo Series:",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: setTextColor,
+                                fontSize: 18),
+                          ),
+                          Text(
+                            amiibo.amiiboSeries,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: setTextColor, fontSize: 18),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
                             "Game Series:",
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -77,6 +95,26 @@ class DetailScreen extends StatelessWidget {
                           ),
                           Text(
                             amiibo.type,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: setTextColor, fontSize: 18),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            amiibo.release.au != null ? 
+                            "Release Date" : "",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: setTextColor,
+                                fontSize: 18),
+                          ),
+                          Text(
+                            amiibo.release.au != null ? 
+                            amiibo.release.au.toString().substring(0, 10) : "",
                             textAlign: TextAlign.center,
                             style: TextStyle(color: setTextColor, fontSize: 18),
                           ),

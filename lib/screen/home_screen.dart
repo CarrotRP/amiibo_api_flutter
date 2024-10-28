@@ -36,33 +36,35 @@ class _HomeScreenState extends State<HomeScreen> {
       );
     }
     String? error = context.watch<AmiiboLogic>().error;
-    if(error != null){
+    if (error != null) {
       return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Could not load\nCheck Your network and try again!",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: _themeIndex == 0 ? Colors.black : Colors.white
-            ),),
+            Text(
+              "Could not load\nCheck Your network and try again!",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: _themeIndex == 0 ? Colors.black : Colors.white),
+            ),
             Padding(
-              padding: const EdgeInsets.only(
-                top: 15
-              ),
-              child: TextButton(onPressed: (){
-                context.read<AmiiboLogic>().read();
-              },
-              style: TextButton.styleFrom(
-                backgroundColor: _themeIndex == 0 ? Colors.white : Colors.black
-              ),
-              child: Text("Retry", style: TextStyle(
-                color: _themeIndex == 0 ? Colors.black : Colors.white
-              ),)),
+              padding: const EdgeInsets.only(top: 15),
+              child: TextButton(
+                  onPressed: () {
+                    context.read<AmiiboLogic>().read();
+                  },
+                  style: TextButton.styleFrom(
+                      backgroundColor:
+                          _themeIndex == 0 ? Colors.white : Colors.black),
+                  child: Text(
+                    "Retry",
+                    style: TextStyle(
+                        color: _themeIndex == 0 ? Colors.black : Colors.white),
+                  )),
             )
           ],
         ),
-        );
+      );
     }
 
     AmiiboModel item = context.watch<AmiiboLogic>().item;
@@ -95,30 +97,30 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildItem(Amiibo item) {
     return InkWell(
-      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => 
-      DetailScreen(themeIndex: _themeIndex, amiibo: item))),
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  DetailScreen(themeIndex: _themeIndex, amiibo: item))),
       child: Card(
         color: _themeIndex == 0 ? Colors.white : Colors.black,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             CachedNetworkImage(
-              imageUrl: item.image, 
-            width: 150,
-            height: 150,
-            fadeInDuration: Duration(milliseconds: 0),
-            errorWidget: (context, url, error) => Icon(Icons.error),),
+              imageUrl: item.image,
+              width: 150,
+              height: 150,
+            ),
             Text(
               item.character,
               style: TextStyle(
-                color: _themeIndex == 0 ? Colors.black : Colors.white,
-                fontSize: 16),
+                  color: _themeIndex == 0 ? Colors.black : Colors.white,
+                  fontSize: 16),
             ),
           ],
         ),
       ),
     );
   }
-
-  
 }

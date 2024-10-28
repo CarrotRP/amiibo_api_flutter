@@ -180,7 +180,7 @@ class _MyAppState extends State<MyApp> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => AboutScreen(
-                          text: _lang.aboutUs, themeIndex: _themeIndex))),
+                          text: _lang, themeIndex: _themeIndex))),
               leading: Icon(
                 Icons.info,
                 color: drawerColor,

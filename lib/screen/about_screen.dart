@@ -1,9 +1,10 @@
+import 'package:amiibo_api/component/language_constant.dart';
 import 'package:amiibo_api/logic/theme_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class AboutScreen extends StatelessWidget {
-  String text;
+  LanguageConstant text;
   int themeIndex;
 
   AboutScreen({required this.text, required this.themeIndex});
@@ -18,7 +19,7 @@ class AboutScreen extends StatelessWidget {
       appBar: AppBar(
         foregroundColor: setTextColor,
         backgroundColor: themeIndex == 0 ? Colors.white : Colors.black,
-        title: Text(text, style: TextStyle(
+        title: Text(text.aboutUs, style: TextStyle(
           color: setTextColor,
         ),),
         centerTitle: true,
@@ -27,7 +28,7 @@ class AboutScreen extends StatelessWidget {
         children: [
           Image.asset(themeIndex == 0 ? "images/light_logo.png" : "images/dark_logo.png", width: 200,height: 200,),
           Text(
-            "What are amiibo?",
+            text.whatAboutUs,
             style: TextStyle(
               fontFamily: "Oswald",
               fontSize: 20,
@@ -37,11 +38,11 @@ class AboutScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
             child: Text(
               textAlign: TextAlign.center,
-                "amiibo are interactive figures and cards that work with your games.Tap an amiibo while playing compatible Nintendo Switch, Nintendo 3DS or Wii U software and you’ll uncover surprising new features! amiibo have different effects depending on the game: you might unlock new modes, weapons or character customisations, or even boost your amiibo’s abilities to turn it into your perfect partner – or a formidable foe!",
-                style: TextStyle(
+                text.aboutUsDes
+                ,style: TextStyle(
                   color: setTextColor
                 ),),),
-            Text("Group Member", 
+            Text(text.groupMember, 
             style: TextStyle(
               decoration: TextDecoration.underline,
               decorationThickness: 2,
@@ -51,7 +52,7 @@ class AboutScreen extends StatelessWidget {
             )),
             Text(
               textAlign: TextAlign.center,
-              "Tae Sivlong\nSok Chandarath\nLim Panharoth", style: TextStyle(
+              text.memberName, style: TextStyle(
                 fontSize: 16,
                 color: setTextColor
               ),)
