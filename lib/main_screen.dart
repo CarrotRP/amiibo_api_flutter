@@ -92,7 +92,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget _buildDrawer() {
-    int themeIndex = context.watch<ThemeLogic>().themeIndex;
+    _themeIndex = context.watch<ThemeLogic>().themeIndex;
     return Drawer(
         width: 250,
         child: ListView(
@@ -111,7 +111,7 @@ class _MyAppState extends State<MyApp> {
               onTap: () {
                 context.read<ThemeLogic>().changeToLight();
               },
-              trailing: themeIndex == 0
+              trailing: _themeIndex == 0
                   ? Icon(
                       Icons.check,
                       color: drawerColor,
@@ -130,7 +130,7 @@ class _MyAppState extends State<MyApp> {
               onTap: () {
                 context.read<ThemeLogic>().changeToDark();
               },
-              trailing: themeIndex == 1
+              trailing: _themeIndex == 1
                   ? Icon(
                       Icons.check,
                       color: drawerColor,

@@ -32,19 +32,19 @@ class SplashScreen extends StatelessWidget {
             return MaterialApp(
               home: MyApp());
           } else {
-            return _buildLoading();
+            return _buildLoading(_themeIndex);
           }
         });
   }
 
-  Widget _buildLoading() {
+  Widget _buildLoading(int _themeIndex) {
     return MaterialApp(
         home: Scaffold(
-      // backgroundColor: themeIndex == 0 ? Colors.white : Colors.black,
+      backgroundColor: _themeIndex == 0 ? Colors.white : Colors.black,
       body: Center(
           child: Image.asset(
-        // themeIndex == 0 ? "images/light_logo.png" : "images/dark_logo.png",
-        "images/light_logo.png",
+        _themeIndex == 0 ? "images/light_logo.png" : "images/dark_logo.png",
+        // "images/light_logo.png",
         width: 200,
         height: 200,
       )),

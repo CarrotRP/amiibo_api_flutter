@@ -1,4 +1,5 @@
 import 'package:amiibo_api/logic/theme_logic.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -90,14 +91,14 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget _buildItem(Amiibo item) {
     return InkWell(
       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => 
-      DetailScreen(themeIndex: _themeIndex, itemName: item.name, itemImg: item.image, itemGseries: item.gameSeries, itemType: item.type,))),
+      DetailScreen(themeIndex: _themeIndex, amiibo: item))),
       child: Card(
         color: _themeIndex == 0 ? Colors.white : Colors.black,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Image.network(
-              item.image,
+            CachedNetworkImage(
+              imageUrl: item.image,
               width: 150,
               height: 150,
             ),

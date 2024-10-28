@@ -1,4 +1,5 @@
 import 'package:amiibo_api/logic/amiibo_logic.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -34,8 +35,37 @@ class _HomeScreenState extends State<HomeScreen> {
         child: CircularProgressIndicator(),
       );
     }
+    String? error = context.watch<AmiiboLogic>().error;
+    if(error != null){
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Could not load\nCheck Your network and try again!",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: _themeIndex == 0 ? Colors.black : Colors.white
+            ),),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 15
+              ),
+              child: TextButton(onPressed: (){
+                context.read<AmiiboLogic>().read();
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: _themeIndex == 0 ? Colors.white : Colors.black
+              ),
+              child: Text("Retry", style: TextStyle(
+                color: _themeIndex == 0 ? Colors.black : Colors.white
+              ),)),
+            )
+          ],
+        ),
+        );
+    }
+
     AmiiboModel item = context.watch<AmiiboLogic>().item;
-    print(item.amiibo);
 
     return _buildGridView(item);
   }
@@ -66,20 +96,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildItem(Amiibo item) {
     return InkWell(
       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => 
-      DetailScreen(themeIndex: _themeIndex, itemName: item.name, itemImg: item.image, itemGseries: item.gameSeries, itemType: item.type,))),
+      DetailScreen(themeIndex: _themeIndex, amiibo: item))),
       child: Card(
         color: _themeIndex == 0 ? Colors.white : Colors.black,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Image.network(item.image, 
+            CachedNetworkImage(
+              imageUrl: item.image, 
             width: 150,
-            height: 150,),
+            height: 150,
+            fadeInDuration: Duration(milliseconds: 0),
+            errorWidget: (context, url, error) => Icon(Icons.error),),
             Text(
               item.character,
               style: TextStyle(
                 color: _themeIndex == 0 ? Colors.black : Colors.white,
-                fontSize: 18),
+                fontSize: 16),
             ),
           ],
         ),
