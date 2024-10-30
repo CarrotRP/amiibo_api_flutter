@@ -28,16 +28,16 @@ class DetailScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-          padding: EdgeInsets.only(top: 20),
+          padding: EdgeInsets.only(top: 5),
           child: Column(
             children: [
               Container(
                 child: CachedNetworkImage(
                   imageUrl: amiibo.image,
-                  width: 300,
-                  height: 300,
+                  width: 400,
+                  height: 400,
                   ),
-                alignment: Alignment.center,
+                // alignment: Alignment.center,
               ),
               Padding(
                   padding: const EdgeInsets.only(

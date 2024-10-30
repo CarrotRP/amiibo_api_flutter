@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../component/amiibo_model.dart';
-import '../component/language_constant.dart';
-import '../logic/language_logic.dart';
 import '../logic/theme_logic.dart';
 import 'detail_screen.dart';
 
@@ -17,13 +15,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  LanguageConstant _lang = Khmer();
   int _themeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     _themeIndex = context.watch<ThemeLogic>().themeIndex;
-    _lang = context.watch<LanguageLogic>().lang;
 
     return _buildBody();
   }

@@ -1,7 +1,5 @@
 import 'package:amiibo_api/component/language_constant.dart';
-import 'package:amiibo_api/logic/theme_logic.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class AboutScreen extends StatelessWidget {
   LanguageConstant text;
