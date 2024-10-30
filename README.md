@@ -1,6 +1,6 @@
 # amiibo_api
-
-A new Flutter project.
+//This is a school project//
+Amiibo is an app aim to video game fans to find information about their favorite figurines, cards and other merchandise from their favorite games
 
 ## Getting Started
 
